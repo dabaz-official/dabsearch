@@ -1,28 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useRef } from 'react'
 import Avatar from '../components/Avatar'
 import Footer from '../components/Footer'
 
-export default function Home() {
-  const router = useRouter();
-  const searchInputRef = useRef(null);
-
-  const search = e => {
-    e.preventDefault();
-    const term = searchInputRef.current.value;
-
-    if (!term) return;
-
-    router.push(`/search?term=${term}`);
-  }
-
+export default function HomeCn() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <Head>
-        <title>DabSearch</title>
+        <title>Dab搜索</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
 
@@ -40,9 +26,9 @@ export default function Home() {
 
         {/* Right */}
         <div className="flex items-center">
-          <Link href="/cn">
+          <Link href="/">
             <a className="pb-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-5 text-gray-700 hover:text-blue-600 transition duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
               </svg>
             </a>
@@ -69,17 +55,16 @@ export default function Home() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <input 
-            ref={searchInputRef}
             type="text" 
             className="flex-grow focus:outline-none" 
-            placeholder="Search anything..."
+            placeholder="搜你所想..."
           />
         </div>
 
         <div className="flex flex-col w-1/2 space-y-2 justify-center sm:space-y-8 sm:flex-row sm:space-x-4">
-          <button className="btn mt-8" onClick={search}>Search</button>
+          <button className="btn mt-8">搜索</button>
           <Link href="https://open.spotify.com/artist/1KmtWPNNBJw4spLrQkPrXQ">
-            <a className="btn">Music</a>
+            <a className="btn">音乐</a>
           </Link>
         </div>
       </form>
